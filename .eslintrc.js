@@ -11,7 +11,19 @@ module.exports = {
     sourceType: 'module'
   },
   rules: {
-    quotes:["error","simple"],
-    semi: "error"
-  }
-}
+    quotes: ['error', 'single'],
+    semi: ['error', 'always'],
+    indent: 'off'
+  },
+  overrides: [
+    {
+      files: [
+        '**/*.spec.js',
+        '**/*.spec.jsx'
+      ],
+      env: {
+        jest: true
+      }
+    }
+  ]
+};
