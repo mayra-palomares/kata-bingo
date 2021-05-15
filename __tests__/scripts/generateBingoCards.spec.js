@@ -6,7 +6,7 @@ describe('Generate Bingo Cards', () => {
         it('should generate a card with 24 different numbers and one 0 for the free space', () => {
             const card = generateBingoCard();
             const numbersSet = new Set();
-            card.forEach((key, values) => {
+            card.forEach((values, key) => {
                 values.forEach(value => numbersSet.add(value));
             });
 
@@ -21,8 +21,9 @@ describe('Generate Bingo Cards', () => {
 
         it('should generate a card with one free space in the middle', () => {
             const card = generateBingoCard();
+            const values = card.get(cardColumns.N);
             const expectedValue = 0;
-            expect(card.get(cardColumns.N)[2]).toBe(expectedValue);
+            expect(values[2]).toBe(expectedValue);
         });
     });
 
