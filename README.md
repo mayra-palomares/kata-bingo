@@ -18,8 +18,19 @@ When I call a number, then the number is between 1 and 75 inclusive.
 When I call a number 75 times, then all numbers between 1 and 75 are present and no number has been called more than once.
 
 ### 2. Generating Bingo Cards
-I want my game to generate random Bingo cards
+I want my game to generate random Bingo cards.
 
 ● Given I have a Bingo card generator.
 
 When I generate a Bingo card, then the generated card has 25 unique spaces, column $column only contains numbers between $lowerBound and $upperBound inclusive and the generated card has 1 FREE space in the middle.
+
+### 3. Checking Bingo Cards
+I want my game to check player's cards when they call Bingos so that a winner can be decided.
+
+● Given a player calls Bingo after all numbers on their card have been called.
+
+When I check the card, then the player is the winner.
+
+● Given a player calls Bingo before all numbers on their card have been called.
+
+When I check the card, then the player is not the winner.

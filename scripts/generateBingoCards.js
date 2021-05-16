@@ -1,9 +1,11 @@
 const { cardBounds, cardColumns } = require('./../constants/bingoCard');
 const { getRandomInteger } = require('../utils/random');
+
 /**
  * This function generates a Bingo card with 24 random numbers.
  * The card will be a map where the key is the column value(B,I,N,G,O)
  * and the value is an array of the 5 numbers in the column.
+ * @returns card
  */
 const generateBingoCard = () => {
     const card = new Map();
@@ -16,6 +18,10 @@ const generateBingoCard = () => {
 
 /**
  * This function generates an array of 5 values with the numbers between a column boundaries.
+ * @param {*} column
+ * @param {*} lowerBound
+ * @param {*} upperBound
+ * @returns values
  */
 const generateCardValues = (column, lowerBound, upperBound) => {
     const numbers = [];
@@ -35,6 +41,8 @@ const generateCardValues = (column, lowerBound, upperBound) => {
 /**
  * This function validates a Bingo card columns.Each column values should be between the lower
  * and upper bounds.
+ * @param {*} card
+ * @returns isValid
  */
 const validateBingoCardColumnBound = card => {
     let isValid = true;

@@ -14,5 +14,8 @@ const cardBounds = new Map([
     [cardColumns.O, { lowerBound: 61, upperBound: 75 }]
 ]);
 
+const cardMaxNumber = 75;
+
 exports.cardBounds = cardBounds;
 exports.cardColumns = cardColumns;
+exports.cardMaxNumber = cardMaxNumber;
