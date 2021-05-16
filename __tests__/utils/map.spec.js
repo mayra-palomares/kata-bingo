@@ -18,23 +18,27 @@ describe('Map Util', () => {
 
     describe('filterMap', () => {
         it('should return empty map if no matches', () => {
-            const fn = (key, value) => value === false;
+            const mockCallback = jest.fn((key, value) => value === false);
             const numbersMap = new Map([
                 [1, true], [2, true], [3, true], [4, true], [5, true]
             ]);
             const expectedMap = new Map();
-            expect(filterMap(numbersMap, fn)).toEqual(expectedMap);
+            const expectedMockCalls = 5;
+            expect(filterMap(numbersMap, mockCallback)).toEqual(expectedMap);
+            expect(mockCallback.mock.calls.length).toBe(expectedMockCalls);
         });
 
         it('should return  map if it found matches', () => {
-            const fn = (key, value) => value === false;
+            const mockCallback = jest.fn((key, value) => value === false);
             const numbersMap = new Map([
                 [1, true], [2, false], [3, true], [4, false], [5, true]
             ]);
             const expectedMap = new Map([
                 [2, false], [4, false]
             ]);
-            expect(filterMap(numbersMap, fn)).toEqual(expectedMap);
+            const expectedMockCalls = 5;
+            expect(filterMap(numbersMap, mockCallback)).toEqual(expectedMap);
+            expect(mockCallback.mock.calls.length).toBe(expectedMockCalls);
         });
     });
 });
